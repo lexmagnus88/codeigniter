@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 
-//alterei
+//create your base url
 $config['base_url'] = 'http://localhost/codeigniter';
 
 /*
