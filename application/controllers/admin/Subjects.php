@@ -5,9 +5,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Subjects extends CI_Controller {
 
 	public function index(){
-                //$this->load->view('welcome_message');
+
+            $data['subjects'] = $this->Subject_model->get_list();
                 //		location, as default template, view to load
-		$this->template->load('admin', 'default', 'subjects/index');
+		    $this->template->load('admin', 'default', 'subjects/index', $data);
         }
 
         public function add(){
