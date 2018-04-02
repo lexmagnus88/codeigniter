@@ -27,16 +27,16 @@
 
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
+          <li class="nav-item" id="dashboard">
             <a class="nav-link" href="<?php echo base_url(); ?>admin">Dashboard</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" id="pages">
           <a class="nav-link" href="<?php echo base_url(); ?>admin/pages">Pages</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" id="subjects">
           <a class="nav-link" href="<?php echo base_url(); ?>admin/subjects">Subjects</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" id="users">
           <a class="nav-link" href="<?php echo base_url(); ?>admin/users">Users</a>
           </li>
           <li class="nav-item dropdown">
@@ -86,8 +86,36 @@
             $('a').removeClass('active');
             $(this).addClass('active');
         });*/
-        $('#search').on('click', function(){
-          alert('Work in progress');
+
+        $( document ).ready(function() {
+          var path = "http://localhost"+window.location.pathname;
+
+          if(path == "http://localhost/codeigniter/admin"){
+            $('#dashboard').addClass('active');
+          }else{
+            $('#dashboard').removeClass('active');
+          }
+          if(path == "http://localhost/codeigniter/admin/pages"){
+            $('#pages').addClass('active');
+          }else{
+            $('#pages').removeClass('active');
+          }
+          if(path == "http://localhost/codeigniter/admin/subjects"){
+            $('#subjects').addClass('active');
+          }else{
+            $('#subjects').removeClass('active');
+          }
+          if(path == "http://localhost/codeigniter/admin/users"){
+            $('#users').addClass('active');
+          }else{
+            $('#users').removeClass('active');
+          }
+
+          $('#search').on('click', function(){
+            alert('Work in progress');
+            alert(path+" e "+href);
+          });
+            
         });
     </script>
   </body>
