@@ -1,9 +1,9 @@
 <?php
-class Subject_model extends CI_MODEL{
+class Page_model extends CI_MODEL{
     function __construct(){
         parent::__construct();
         //to create table
-        $this->table = 'subjects';
+        $this->table = 'pages';
     }
 
     public function get_list(){

@@ -20,38 +20,40 @@
   <body>
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-      <a class="navbar-brand" href="<?php echo base_url(); ?>admin">Sparkup CMS</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      <div class="container">
+        <a class="navbar-brand" href="<?php echo base_url(); ?>admin">Sparkup CMS</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item" id="dashboard">
-            <a class="nav-link" href="<?php echo base_url(); ?>admin">Dashboard</a>
-          </li>
-          <li class="nav-item" id="pages">
-          <a class="nav-link" href="<?php echo base_url(); ?>admin/pages">Pages</a>
-          </li>
-          <li class="nav-item" id="subjects">
-          <a class="nav-link" href="<?php echo base_url(); ?>admin/subjects">Subjects</a>
-          </li>
-          <li class="nav-item" id="users">
-          <a class="nav-link" href="<?php echo base_url(); ?>admin/users">Users</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">User</a>
-            <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" href="#">View Perfil</a>
-              <a class="dropdown-item" href="#">Preferences</a>
-              <a class="dropdown-item" href="<?php echo base_url(); ?>users/logout">Logout</a>
-            </div>
-          </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" id="search" type="submit">Search</button>
-        </form>
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item" id="dashboard">
+              <a class="nav-link" href="<?php echo base_url(); ?>admin">Dashboard</a>
+            </li>
+            <li class="nav-item" id="pages">
+            <a class="nav-link" href="<?php echo base_url(); ?>admin/pages">Pages</a>
+            </li>
+            <li class="nav-item" id="subjects">
+            <a class="nav-link" href="<?php echo base_url(); ?>admin/subjects">Subjects</a>
+            </li>
+            <li class="nav-item" id="users">
+            <a class="nav-link" href="<?php echo base_url(); ?>admin/users">Users</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">User</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown01">
+                <a class="dropdown-item" href="#">View Perfil</a>
+                <a class="dropdown-item" href="#">Preferences</a>
+                <a class="dropdown-item" href="<?php echo base_url(); ?>users/logout">Logout</a>
+              </div>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" id="search" type="submit">Search</button>
+          </form>
+        </div>
       </div>
     </nav>
 
@@ -79,6 +81,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
     <script src="../../../../assets/js/vendor/popper.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script>
         /*$('li a').click(function(e) {
