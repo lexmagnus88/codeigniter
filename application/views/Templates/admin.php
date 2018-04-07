@@ -40,6 +40,9 @@
             <li class="nav-item" id="users">
             <a class="nav-link" href="<?php echo base_url(); ?>admin/users">Users</a>
             </li>
+            <li class="nav-item" id="page">
+            <a class="nav-link" href="<?php echo base_url(); ?>pages/index">Website</a>
+            </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">User</a>
               <div class="dropdown-menu" aria-labelledby="dropdown01">
