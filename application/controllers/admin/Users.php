@@ -4,13 +4,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Users extends CI_Controller {
 
+    function __construct(){
+        parent::__construct();
+
+    }
+    
 	public function index(){
+        //check login
+        if(!$this->session->userdata('logged_in')){
+            redirect('admin/login');
+        }
         $data['users'] = $this->User_model->get_list();
         //		location, as default template, view to load
         $this->template->load('admin', 'default', 'users/index', $data);
     }
 
     public function add(){
+        //check login
+        if(!$this->session->userdata('logged_in')){
+            redirect('admin/login');
+        }
          //validations
          $this->form_validation->set_rules('first_name', 'First Namw', 'trim|required|min_length[2]');
          $this->form_validation->set_rules('last_name', 'Last Name', 'trim|required|min_length[2]');
@@ -56,6 +69,10 @@ class Users extends CI_Controller {
     }
 
     public function edit($id){
+        //check login
+        if(!$this->session->userdata('logged_in')){
+            redirect('admin/login');
+        }
         //validations
         $this->form_validation->set_rules('first_name', 'First Namw', 'trim|required|min_length[2]');
         $this->form_validation->set_rules('last_name', 'Last Name', 'trim|required|min_length[2]');
@@ -100,6 +117,10 @@ class Users extends CI_Controller {
     }
 
     public function delete($id){
+        //check login
+        if(!$this->session->userdata('logged_in')){
+            redirect('admin/login');
+        }
         $username = $this->User_model->get($id)->username;
 
         //delete
@@ -125,10 +146,55 @@ class Users extends CI_Controller {
     }
 
     public function login(){
+        //validations
+        $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[4]');
+        $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[4]');
+ 
+        if($this->form_validation->run() == FALSE){
+            //Load template
+            $this->template->load('admin', 'login', 'users/login');
+        }else{
+            
+            //get Post Data
+            $username = $this->input->post('username');
+            $password = $this->input->post('password');
+            $enc_password = md5($password);
+ 
+            $user_id = $this->User_model->login($username, $enc_password);
 
+            if($user_id){
+                $user_data = array(
+                    'user_id' => $user_id,
+                    'username' => $username,
+                    'logged_in' => true
+                );
+            
+                $this->session->set_userdata($user_data);
+
+                //set message
+                $this->session->set_flashdata('success', 'You are logged in');
+    
+                //redirect
+                redirect('admin');
+            }else{
+
+                //set error message
+                $this->session->set_flashdata('error', 'Invalid Login');
+    
+                //redirect
+                redirect('admin/users/login');
+            }
+        }
     }
 
     public function logout(){
+        $this->session->unset_userdata('logged_in');
+        $this->session->unset_userdata('user_id');
+        $this->session->unset_userdata('username');
+        $this->session->sess_destroy();
 
+        //message
+        $this->session->set_flashdata('success', 'You are logged out');
+        redirect('admin/users/login');
 	}
 }

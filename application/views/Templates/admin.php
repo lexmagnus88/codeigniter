@@ -45,7 +45,7 @@
               <div class="dropdown-menu" aria-labelledby="dropdown01">
                 <a class="dropdown-item" href="#">View Perfil</a>
                 <a class="dropdown-item" href="#">Preferences</a>
-                <a class="dropdown-item" href="<?php echo base_url(); ?>users/logout">Logout</a>
+                <a class="dropdown-item" href="<?php echo base_url(); ?>admin/users/logout">Logout</a>
               </div>
             </li>
           </ul>
