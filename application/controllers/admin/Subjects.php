@@ -2,7 +2,7 @@
 //to control acess
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Subjects extends CI_Controller {
+class Subjects extends Admin_Controller {
 
     function __construct(){
         parent::__construct();
@@ -41,7 +41,7 @@ class Subjects extends CI_Controller {
                 'resource_id' => $this->db->insert_id(),
                 'type' => 'subject',
                 'action' => 'added',
-                'user_id' => 1,
+                'user_id' => $this->session->userdata('user_id'),
                 'message' => 'A new subject was added ('.$data["name"].')'
             );
 
@@ -82,7 +82,7 @@ class Subjects extends CI_Controller {
                 'resource_id' => $this->db->insert_id(),
                 'type' => 'subject',
                 'action' => 'updated',
-                'user_id' => 1,
+                'user_id' => $this->session->userdata('user_id'),
                 'message' => 'A subject ('.$old_name.') was renamed ('.$new_name.')'
             );
 
@@ -108,7 +108,7 @@ class Subjects extends CI_Controller {
             'resource_id' => $this->db->insert_id(),
             'type' => 'subject',
             'action' => 'deleted',
-            'user_id' => 1,
+            'user_id' => $this->session->userdata('user_id'),
             'message' => 'A subject ('.$name.') was deleted'
         );
 

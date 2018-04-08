@@ -2,7 +2,7 @@
 //to control acess
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Users extends CI_Controller {
+class Users extends Admin_Controller {
 
     function __construct(){
         parent::__construct();
@@ -53,7 +53,7 @@ class Users extends CI_Controller {
                  'resource_id' => $this->db->insert_id(),
                  'type' => 'user',
                  'action' => 'added',
-                 'user_id' => 1,//$this->session->userdata('user_id'),
+                 'user_id' => $this->session->userdata('user_id'),
                  'message' => 'A new user was added ('.$data["username"].')'
              );
  
@@ -100,7 +100,7 @@ class Users extends CI_Controller {
                 'resource_id' => $this->db->insert_id(),
                 'type' => 'user',
                 'action' => 'updated',
-                'user_id' => 1,//$this->session->userdata('user_id'),
+                'user_id' => $this->session->userdata('user_id'),
                 'message' => 'A user was updated ('.$data["username"].')'
             );
 

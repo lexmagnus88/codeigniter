@@ -36,7 +36,7 @@
                 "<td>".$page->id."</td>".
                 "<td><i class='".$publish_icon."'></i></td>".
                 "<td>".$page->title."</td>".
-                "<td>".$page->title."</td>".
+                "<td>".get_user_full_name($page->user_id)."</td>".
                 "<td>".$formatted_date."</td>"; ?>
                 <td>
                     <?php echo anchor('admin/pages/edit/'.$page->id.'', 'Edit', 'class="btn btn-primary"'); ?>

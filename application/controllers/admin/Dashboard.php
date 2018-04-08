@@ -2,7 +2,7 @@
 //to control acess
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Dashboard extends CI_Controller {
+class Dashboard extends Admin_Controller {
 
 	function __construct(){
         parent::__construct();

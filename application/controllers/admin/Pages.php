@@ -2,7 +2,7 @@
 //to control acess
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Pages extends CI_Controller {
+class Pages extends Admin_Controller {
 
     function __construct(){
         parent::__construct();
@@ -15,6 +15,8 @@ class Pages extends CI_Controller {
     
 	public function index(){
         $data['pages'] = $this->Page_model->get_list();
+
+        //var_dump($data['username']);
                 //		location, as default template, view to load
         $this->template->load('admin', 'default', 'pages/index', $data);
     }
@@ -55,7 +57,7 @@ class Pages extends CI_Controller {
                 'is_published'  => $this->input->post('is_published'),
                 'is_featured'   => $this->input->post('is_featured'),
                 'in_menu'       => $this->input->post('in_menu'),
-                'user_id'       => 1,
+                'user_id'       => $this->session->userdata('user_id'),
                 'order'         => $this->input->post('order')
             );
 
@@ -67,7 +69,7 @@ class Pages extends CI_Controller {
                 'resource_id' => $this->db->insert_id(),
                 'type' => 'page',
                 'action' => 'added',
-                'user_id' => 1,
+                'user_id' => $this->session->userdata('user_id'),
                 'message' => 'A new page was added ('.$data["title"].')'
             );
 
@@ -122,7 +124,7 @@ class Pages extends CI_Controller {
                 'is_published'  => $this->input->post('is_published'),
                 'is_featured'   => $this->input->post('is_featured'),
                 'in_menu'       => $this->input->post('in_menu'),
-                'user_id'       => 1,
+                'user_id'       => $this->session->userdata('user_id'),
                 'order'         => $this->input->post('order')
             );
 
@@ -134,7 +136,7 @@ class Pages extends CI_Controller {
                 'resource_id'   => $this->db->insert_id(),
                 'type'          => 'page',
                 'action'        => 'updated',
-                'user_id'       => 1,
+                'user_id'       => $this->session->userdata('user_id'),
                 'message'       => 'A page was updated ('.$data["title"].')'
             );
 
@@ -160,7 +162,7 @@ class Pages extends CI_Controller {
             'resource_id' => $this->db->insert_id(),
             'type' => 'subject',
             'action' => 'deleted',
-            'user_id' => 1,
+            'user_id' => $this->session->userdata('user_id'),
             'message' => 'A page ('.$title.') was deleted'
         );
 
